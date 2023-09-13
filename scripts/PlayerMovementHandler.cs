@@ -9,16 +9,16 @@ public class PlayerMovementHandler : MonoBehaviour
     private Rigidbody PlayerRB;
     void Start()
     {
-        playerMovementSpeed = 3;
+        playerMovementSpeed = 2;
         PlayerRB = this.GetComponent<Rigidbody>();
+    }
+    private void Update()
+    {
+        playerMovementVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        playerMovementVector.Normalize();
     }
     private void FixedUpdate()
     {
-        playerMovementVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        MovePlayer(playerMovementVector);
-    }
-    private void MovePlayer(Vector3 direction)
-    {
-        PlayerRB.velocity = direction * playerMovementSpeed;
+        PlayerRB.velocity = playerMovementVector * playerMovementSpeed;
     }
 }
