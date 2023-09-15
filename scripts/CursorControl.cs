@@ -1,58 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
+// Using the unity's engine
 using UnityEngine;
 
+// Player Rotation Handler class
 public class PlayerRotationHandler : MonoBehaviour
 {
-    public Vector3 target;
-   
+    // Variables
+    private Camera mainCamera;
 
-    private void Update()
+    // Start function
+    void Start()
     {
-        MouseMovement1();
-
-
+        // Set main camera
+        mainCamera = Camera.main;
     }
 
-
-    public void MouseMovement1()
+    // Update function
+    void Update()
     {
-        target = Input.mousePosition;
-        Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, target.y, transform.position.z - Camera.main.transform.position.z));
+        // Get mouse position on screen
+        Vector3 mousePosition = Input.mousePosition;
 
-        Vector3 direction = (mousePosWorld - transform.position).normalized;
+        // Convert mouse position to world coordinates
+        Vector3 worldMousePosition = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, mainCamera.transform.position.y));
 
-        //this fix the wrong way rotation
-        direction.y = 0;
+        // Calculate the direction from character to mouse
+        Vector3 lookDirection = worldMousePosition - transform.position;
+        lookDirection.y = 0f;
 
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        // Turn the player with quaternion
+        Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
 
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
-        transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
-
-        //transform.up = target - new Vector3(transform.position.x, 0, transform.position.z);
+        // Rotate the player using y axis towards the mouse
+        transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
     }
-
-    public void MouseMovement2()
-    {
-        target = Input.mousePosition;
-        Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, target.y, transform.position.z - Camera.main.transform.position.z));
-
-        Vector3 direction = (mousePosWorld - transform.position).normalized;
-
-
-        direction.y = 0;
-
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        //transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, 1f * Time.deltaTime);
-        transform.Rotate(targetRotation.eulerAngles);
-       // transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
-
-     
-    }
-
-
-
-
 }
