@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CursorControl : MonoBehaviour
+public class PlayerRotationHandler : MonoBehaviour
 {
     public Vector3 target;
    
