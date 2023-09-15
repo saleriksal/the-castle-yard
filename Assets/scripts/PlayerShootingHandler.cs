@@ -44,9 +44,7 @@ public class PlayerShootingHandler : MonoBehaviour
 
             if (Physics.Raycast(gunEnd.transform.position, player.transform.forward, out hit, weaponRange))
             {
-                Debug.Log(hit.transform.name + " was hit");
                 bulletTrail.SetPosition(1, hit.point);
-                Debug.Log(hit.point);
 
                 GameObject particleSystemObj = Instantiate(particlePrefab, hit.point, Quaternion.identity);
 
@@ -60,12 +58,17 @@ public class PlayerShootingHandler : MonoBehaviour
                 {
                     hit.transform.gameObject.GetComponent<EnemyDataHandler>().TakeDamage(damage);
                 }
+                if (hit.transform.gameObject.tag == "PhysicsObject")
+                {
+                    int force = 15;
+                    hit.rigidbody.AddForceAtPosition(force * player.transform.forward, hit.point);
+                    hit.transform.gameObject.GetComponent<ObjectPhysicController>().TakeDamage(1);
+                }
 
                 
             }
             else
             {
-                Debug.Log("Did not hit anything");
                 bulletTrail.SetPosition(1, endPos);
             }
             StartCoroutine(ShotEffect());

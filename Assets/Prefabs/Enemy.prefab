@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   Enemy: {fileID: 1106261586561430092}
+  particlePrefab: {fileID: 4383563368343024659, guid: 869464b0606974d1d9db055a9ca01583, type: 3}
 --- !u!1 &1106261587517885074
 GameObject:
   m_ObjectHideFlags: 0

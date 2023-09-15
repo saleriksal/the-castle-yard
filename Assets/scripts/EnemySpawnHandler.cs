@@ -22,16 +22,33 @@ public class EnemySpawnHandler : MonoBehaviour
         {
             nextSpawn = Time.time + delay;
 
-            int spawnPointX = Random.Range(-20, 20);
-            int spawnPointZ = Random.Range(-20, 20);
-            
-
-            Vector3 spawnPos = new Vector3(spawnPointX, 0, spawnPointZ);
-
-            if (Vector3.Distance(spawnPos, Player.transform.position))
-            {
-                Instantiate(Enemy, spawnPos, Quaternion.identity);
-            }
+            GetPositions();
         }
+    }
+    void GetPositions()
+    {
+        int spawnPointX = Random.Range(-20, 20);
+        int spawnPointZ = Random.Range(-20, 20);
+
+        Vector3 playerPos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
+
+        Vector3 spawnPos = new Vector3(spawnPointX, 0, spawnPointZ);
+
+        float spawnDist = Vector3.Distance(spawnPos, playerPos);
+
+        SpawnEnemy(spawnDist, spawnPos);
+
+    }
+    void SpawnEnemy(float spawnDist, Vector3 spawnPos)
+    {
+        if (spawnDist > 10)
+        {
+            Instantiate(Enemy, spawnPos, Quaternion.identity);
+        }
+        else
+        {
+            GetPositions();
+        }
+        
     }
 }

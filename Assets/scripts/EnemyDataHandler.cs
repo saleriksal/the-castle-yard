@@ -6,6 +6,7 @@ public class EnemyDataHandler : MonoBehaviour
 {
     public int health;
     public GameObject Enemy;
+    public GameObject particlePrefab;
     void Start()
     {
         health = 2;
@@ -26,5 +27,13 @@ public class EnemyDataHandler : MonoBehaviour
     public void EnemyDie()
     {
         Destroy(Enemy);
+
+        GameObject particleSystemObj = Instantiate(particlePrefab, gameObject.transform.position, Quaternion.identity);
+
+        ParticleSystem particleSystem = particleSystemObj.GetComponent<ParticleSystem>();
+        if (particleSystem != null)
+        {
+            Destroy(particleSystemObj, particleSystem.main.duration);
+        }
     }
 }
