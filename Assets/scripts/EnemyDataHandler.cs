@@ -7,9 +7,11 @@ public class EnemyDataHandler : MonoBehaviour
     public int health;
     public GameObject Enemy;
     public GameObject particlePrefab;
+    public GameObject player;
     void Start()
     {
         health = 2;
+        player = GameObject.FindWithTag("Player");
     }
 
     private void Update()
@@ -35,5 +37,6 @@ public class EnemyDataHandler : MonoBehaviour
         {
             Destroy(particleSystemObj, particleSystem.main.duration);
         }
+        player.GetComponent<PlayerDataHandler>().playerKills++;
     }
 }
