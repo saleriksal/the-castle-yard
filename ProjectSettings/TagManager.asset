@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - PhysicsObject
+  - PUSpeed
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ public class PlayerMovementHandler : MonoBehaviour
     void Start()
     {
         // Define the player Movement Speed
-        playerMovementSpeed = 2;
+        playerMovementSpeed = 4;
 
         // Define the Player Rigidbody by finding it from the components of the player (found inside inspector tab) (this means the script)
         PlayerRB = this.GetComponent<Rigidbody>();
