@@ -38,6 +38,7 @@ public class PlayerDataHandler : MonoBehaviour
     public void PlayerDamageTaken(int damage)
     {
         playerHealth -= damage;
+        player.GetComponentInChildren<GameGuiHandler>().withd -= 30;
     }
 
     // Player dies
