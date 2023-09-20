@@ -35,7 +35,7 @@ public class PlayerDataHandler : MonoBehaviour
     }
 
     // Player takes damage
-    void PlayerDamageTaken(int damage)
+    public void PlayerDamageTaken(int damage)
     {
         playerHealth -= damage;
     }
@@ -44,6 +44,7 @@ public class PlayerDataHandler : MonoBehaviour
     void PlayerDeath()
     {
         deathCount++;
+        Destroy(this.gameObject);
     }
 
     // player gets kill
