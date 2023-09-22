@@ -5,9 +5,10 @@ using UnityEngine.UI;
 public class GameGuiHandler : MonoBehaviour
 {
     public TextMeshProUGUI kills;
-    public TextMeshProUGUI score;
+    public TextMeshProUGUI wave;
     public TextMeshProUGUI clock;
     public GameObject player;
+    public GameObject gameManager;
     public Image health;
     public float withd;
     public float height;
@@ -16,7 +17,7 @@ public class GameGuiHandler : MonoBehaviour
     void Start()
     {
         kills.text = "0";
-        score.text = "0";
+        wave.text = "0";
         withd = 300;
         height = 15;
     }
@@ -27,12 +28,9 @@ public class GameGuiHandler : MonoBehaviour
         time += Time.deltaTime;
         int seconds = ((int)time % 60);
         int minutes = ((int)time / 60);
-        float calcScore = 0;
-        calcScore = player.GetComponent<PlayerDataHandler>().playerKills * time / 2;
-        int finalScore = ((int)calcScore);
+        wave.text = gameManager.GetComponent<GameManager>().vaweDifficulty.ToString();
         kills.text = player.GetComponent<PlayerDataHandler>().playerKills.ToString();
         clock.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        score.text = finalScore.ToString();
         health.rectTransform.sizeDelta = new Vector2(withd, height);
     }
 }

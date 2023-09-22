@@ -8,9 +8,13 @@ public class EnemySpawnHandler : MonoBehaviour
     public float delay;
     public float nextSpawn;
     public GameObject Player;
+    private bool SpawnEnemys = false;
+    private int SpawnvaweCount;
+    int timesOG;
+    int times;
     void Start()
     {
-        delay = 2;
+        delay = 5;
         nextSpawn = Time.time + delay;
         
     }
@@ -18,32 +22,56 @@ public class EnemySpawnHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextSpawn)
+        if (SpawnEnemys)
         {
-            nextSpawn = Time.time + delay;
+            if (SpawnvaweCount > 0)
+            {
+                if (Time.time > nextSpawn)
+                {
+                    nextSpawn = Time.time + delay;
 
-            GetPositions();
+                    GetPositions();
+                    SpawnvaweCount--;
+                }
+            }
         }
     }
+
+    public void StartVaweSpawning(int vaweCount, int enemyCount)
+    {
+        SpawnEnemys = true;
+        SpawnvaweCount = vaweCount;
+        timesOG = enemyCount;
+        times = timesOG;
+    }
+
     void GetPositions()
     {
-        int spawnPointX = Random.Range(-20, 20);
-        int spawnPointZ = Random.Range(-20, 20);
+        if (times > 0)
+        {
+            int spawnPointX = Random.Range(-20, 20);
+            int spawnPointZ = Random.Range(-20, 20);
 
-        Vector3 playerPos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
+            Vector3 playerPos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
 
-        Vector3 spawnPos = new Vector3(spawnPointX, 0, spawnPointZ);
+            Vector3 spawnPos = new Vector3(spawnPointX, 1.5f, spawnPointZ);
 
-        float spawnDist = Vector3.Distance(spawnPos, playerPos);
+            float spawnDist = Vector3.Distance(spawnPos, playerPos);
 
-        SpawnEnemy(spawnDist, spawnPos);
-
+            SpawnEnemy(spawnDist, spawnPos);
+        }
+        else
+        {
+            times = timesOG;
+        }
     }
     void SpawnEnemy(float spawnDist, Vector3 spawnPos)
     {
         if (spawnDist > 10)
         {
+            times--;
             Instantiate(Enemy, spawnPos, Quaternion.identity);
+            GetPositions();
         }
         else
         {

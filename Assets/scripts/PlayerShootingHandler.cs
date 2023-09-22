@@ -13,11 +13,11 @@ public class PlayerShootingHandler : MonoBehaviour
     public GameObject particlePrefab;
 
     private WaitForSeconds shotDuration;
-    private AudioSource gunAudio;
+    public AudioSource gunAudio;
     private LineRenderer bulletTrail;
     private float nextFire;
     private int damage;
-    
+    private float pitch;
 
     void Start()
     {
@@ -78,6 +78,9 @@ public class PlayerShootingHandler : MonoBehaviour
 
     private IEnumerator ShotEffect()
     {
+        pitch = Random.Range(0.9f, 1.1f);
+
+        gunAudio.pitch = pitch;
         gunAudio.Play();
 
         bulletTrail.enabled = true;

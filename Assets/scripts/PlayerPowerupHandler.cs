@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerPowerupHandler : MonoBehaviour
 {
     public GameObject player;
+    public AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class PlayerPowerupHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        sound.Play();
         if (other.gameObject.tag == "PUSpeed")
         {
             player.GetComponent<PlayerMovementHandler>().playerMovementSpeed *= 2;

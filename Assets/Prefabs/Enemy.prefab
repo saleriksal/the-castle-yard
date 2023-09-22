@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1106261586561430083}
   - component: {fileID: 1106261586561430086}
   - component: {fileID: 1106261586561430085}
+  - component: {fileID: -3815863546952315819}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -117,6 +118,7 @@ MonoBehaviour:
   player: {fileID: 0}
   RB: {fileID: 0}
   speed: 0
+  acceptDamage: 1
 --- !u!54 &1106261586561430086
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,7 +133,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!114 &1106261586561430085
 MonoBehaviour:
@@ -145,9 +147,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4039dc1ac4e246fa91b8a32d41a07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmg:
+  - {fileID: 8300000, guid: ee613fcbd3e6e496aa040e603021d39c, type: 3}
+  - {fileID: 8300000, guid: 7ea34ab438fa048e8ae54af1ca4c84f3, type: 3}
+  - {fileID: 8300000, guid: 50e1326f641444e019bf79e0fd3cfb91, type: 3}
   health: 0
   Enemy: {fileID: 1106261586561430092}
   particlePrefab: {fileID: 4383563368343024659, guid: 869464b0606974d1d9db055a9ca01583, type: 3}
+  player: {fileID: 0}
+  powerups:
+  - {fileID: 1990557219478921072, guid: 8736f99d89ba54d8c9ca19cffac3682a, type: 3}
+  powerup: {fileID: 0}
+  dmgSound: {fileID: -3815863546952315819}
+--- !u!82 &-3815863546952315819
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106261586561430092}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1106261587517885074
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +266,6 @@ GameObject:
   - component: {fileID: 1106261587517885073}
   - component: {fileID: 1106261587517885078}
   - component: {fileID: 1106261587517885079}
-  - component: {fileID: 1106261587517885072}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -232,16 +338,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1106261587517885072
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106261587517885074}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

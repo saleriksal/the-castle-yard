@@ -9,12 +9,14 @@ public class EnemyAiHandler : MonoBehaviour
     public Rigidbody RB;
     public float speed;
     public bool acceptDamage = true;
+    public GameObject GameManager;
 
     private void Start()
     {
         speed = 2f;
         RB = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player").transform;
+        GameManager = GameObject.FindWithTag("GameManager");
     }
     void Update()
     {
@@ -26,6 +28,7 @@ public class EnemyAiHandler : MonoBehaviour
         {
             acceptDamage = false;
             collision.gameObject.GetComponent<PlayerDataHandler>().PlayerDamageTaken(1);
+            GameManager.GetComponent<GameManager>().enemiesDead++;
             Destroy(this.gameObject);
         }
     }
