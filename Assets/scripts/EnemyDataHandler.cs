@@ -48,8 +48,8 @@ public class EnemyDataHandler : MonoBehaviour
     public void EnemyDie()
     {
         canDie = false;
-        int chance = Random.Range(0, 10);
-        if (chance == 5)
+        int chance = Random.Range(0, 20);
+        if (chance == 10)
         {
             int randompower = Random.Range(0, powerups.Length);
             powerup = powerups[randompower];

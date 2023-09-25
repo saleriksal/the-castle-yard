@@ -21,7 +21,6 @@ public class PlayerDataHandler : MonoBehaviour
     private float pitch;
 
     private bool canDie = true;
-    private bool canEnd = false;
 
     // Start
     void Start()
