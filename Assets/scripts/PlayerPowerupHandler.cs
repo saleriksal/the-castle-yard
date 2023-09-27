@@ -10,12 +10,13 @@ public class PlayerPowerupHandler : MonoBehaviour
     void Start()
     {
         player = this.gameObject;
+        sound = player.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+         
     }
 
     private void OnTriggerEnter(Collider other)
