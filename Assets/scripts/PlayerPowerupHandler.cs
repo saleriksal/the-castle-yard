@@ -13,19 +13,51 @@ public class PlayerPowerupHandler : MonoBehaviour
         sound = player.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+   //movment speed power up
+    private void SpeedTimer()
     {
-         
+        player.GetComponent<PlayerMovementHandler>().playerMovementSpeed += 5;
+       
+    }
+    private void SpeedTimer2()
+    {
+        player.GetComponent<PlayerMovementHandler>().playerMovementSpeed -= 5;
     }
 
+   //Fire rate power up
+    private void FireRateUp()
+    {
+        player.GetComponent<PlayerShootingHandler>().fireRate -= 100;
+    }
+
+    private void FireRateUp2()
+    {
+        player.GetComponent<PlayerShootingHandler>().fireRate += 100;
+    }
+    
+   //What they do
     private void OnTriggerEnter(Collider other)
     {
         sound.Play();
         if (other.gameObject.tag == "PUSpeed")
         {
-            player.GetComponent<PlayerMovementHandler>().playerMovementSpeed *= 2;
+            SpeedTimer();
+            Invoke("SpeedTimer2", 7f);
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "PUFireRate")
+        {
+            FireRateUp();
+            Invoke("FireRateUp2", 10f);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "PUHealth")
+        {
+            player.GetComponent<PlayerDataHandler>().PlayerHealTaken(3);
+            Destroy(other.gameObject);
+        }
+
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - PUSpeed
   - EnemySpawner
   - GameManager
+  - PUHealth
+  - PUFireRate
   layers:
   - Default
   - TransparentFX

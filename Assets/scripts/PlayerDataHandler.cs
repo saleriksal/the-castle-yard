@@ -35,6 +35,13 @@ public class PlayerDataHandler : MonoBehaviour
     // Update
     void Update()
     {
+        if(playerHealth > 10)
+        {
+            playerHealth = 10;
+            player.GetComponentInChildren<GameGuiHandler>().withd = 300;
+        }
+
+
         playerCurrentPosition = player.transform.position;
         playerCurrentRotation = player.transform.rotation;
 
@@ -64,6 +71,8 @@ public class PlayerDataHandler : MonoBehaviour
         damageSound.Play();
         playerHealth += health;
         player.GetComponentInChildren<GameGuiHandler>().withd += 30;
+
+
     }
 
     // Player dies
