@@ -11,6 +11,7 @@ public class PlayerShootingHandler : MonoBehaviour
     public Transform gunEnd;
     public GameObject player;
     public GameObject particlePrefab;
+    public LayerMask targetLayerMask;
 
     private WaitForSeconds shotDuration;
     public AudioSource gunAudio;
@@ -40,9 +41,10 @@ public class PlayerShootingHandler : MonoBehaviour
             nextFire = Time.time + fireRate;
             Vector3 endPos = gunEnd.transform.position + player.transform.forward * weaponRange;
             RaycastHit hit;
+            targetLayerMask = ~(1 << LayerMask.NameToLayer("PowerUp"));
             bulletTrail.SetPosition(0, gunEnd.position);
 
-            if (Physics.Raycast(gunEnd.transform.position, player.transform.forward, out hit, weaponRange))
+            if (Physics.Raycast(gunEnd.transform.position, player.transform.forward, out hit, weaponRange, targetLayerMask))
             {
                 bulletTrail.SetPosition(1, hit.point);
 
