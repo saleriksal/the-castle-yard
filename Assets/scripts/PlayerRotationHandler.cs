@@ -8,7 +8,9 @@ public class PlayerRotationHandler : MonoBehaviour
     public Transform gunTransform;
     private void Update()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Vector3 mousePosition = Input.mousePosition;
+
+        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, aimLayerMask))
