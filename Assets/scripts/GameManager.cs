@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         vaweDifficulty++;
         actionText.text = "WAVE " + vaweDifficulty.ToString() + " BEGINS!";
         actionBar.SetTrigger("ActivateBar");
+        enemySpawner.GetComponent<EnemySpawnHandler>().nextSpawn = Time.time + enemySpawner.GetComponent<EnemySpawnHandler>().delay;
         enemySpawner.GetComponent<EnemySpawnHandler>().StartVaweSpawning(5, 2 + vaweDifficulty);
         killsNeeded += 5 * (2 + vaweDifficulty);
         

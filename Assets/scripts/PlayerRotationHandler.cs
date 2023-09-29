@@ -5,7 +5,6 @@ public class PlayerRotationHandler : MonoBehaviour
     public Transform playerTransform;
     public Camera mainCamera;
     public LayerMask aimLayerMask;
-    public Transform gunTransform;
     private void Update()
     {
         Vector3 mousePosition = Input.mousePosition;
@@ -15,7 +14,7 @@ public class PlayerRotationHandler : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, aimLayerMask))
         {
-            Vector3 targetDirection = hit.point - gunTransform.position;
+            Vector3 targetDirection = hit.point - playerTransform.position;
 
             playerTransform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(targetDirection, Vector3.up));
         }
