@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     public bool allEnemiesDead = false;
     private int killsNeeded;
     public int enemiesDead;
+    public Animator actionBar;
+    public TextMeshProUGUI actionText;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +63,9 @@ public class GameManager : MonoBehaviour
     {
         vaweActive = true;
         vaweDifficulty++;
+        actionText.text = "WAVE " + vaweDifficulty.ToString() + " BEGINS!";
+        actionBar.SetTrigger("ActivateBar");
+        enemySpawner.GetComponent<EnemySpawnHandler>().nextSpawn = Time.time + enemySpawner.GetComponent<EnemySpawnHandler>().delay;
         enemySpawner.GetComponent<EnemySpawnHandler>().StartVaweSpawning(5, 2 + vaweDifficulty);
         killsNeeded += 5 * (2 + vaweDifficulty);
         
