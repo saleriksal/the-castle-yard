@@ -34,14 +34,7 @@ public class PlayerPowerupHandler : MonoBehaviour
     {
         player.GetComponent<PlayerShootingHandler>().fireRate += 100;
     }
-
-    //private void PUMoreBullets()
-    //{
-    //    player.GetComponent<PlayerShootingHandler>();
-    //}
-
-
-
+    
    //What they do
     private void OnTriggerEnter(Collider other)
     {
@@ -56,11 +49,10 @@ public class PlayerPowerupHandler : MonoBehaviour
         if (other.gameObject.tag == "PUFireRate")
         {
             FireRateUp();
-            Invoke("FireRateUp2", 5f);
+            Invoke("FireRateUp2", 10f);
             Destroy(other.gameObject);
         }
 
-        //Healing item
         if (other.gameObject.tag == "PUHealth")
         {
             player.GetComponent<PlayerDataHandler>().PlayerHealTaken(3);

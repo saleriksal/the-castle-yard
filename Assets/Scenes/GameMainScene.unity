@@ -306,7 +306,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 15, y: 20, z: 25}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: -5, y: 10, z: 0}
 --- !u!4 &54069004 stripped
 Transform:
@@ -1192,7 +1196,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 15, y: 20, z: 25}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: -5, y: 10, z: 0}
 --- !u!4 &289183869 stripped
 Transform:
@@ -1460,7 +1468,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 2, y: 4, z: 25}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &467745068
 GameObject:
@@ -2150,7 +2162,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 20, y: 4, z: 6}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &744320251
 PrefabInstance:
@@ -2241,7 +2257,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 25, y: 20, z: 20}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 10, z: 0}
 --- !u!4 &744320254 stripped
 Transform:
@@ -2846,7 +2866,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 1, y: 1, z: 1}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &936953291
 MeshRenderer:
@@ -2959,7 +2983,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 25, y: 20, z: 20}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 10, z: 0}
 --- !u!4 &943640258 stripped
 Transform:
@@ -3395,7 +3423,11 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 100, y: 0, z: 100}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1047073730
 Transform:
@@ -3735,7 +3767,11 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 1
   m_AngularDrag: 1
+<<<<<<< HEAD
   m_UseGravity: 0
+=======
+  m_UseGravity: 1
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -3917,7 +3953,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.8049616, b: 0.4292453, a: 1}
+      key0: {r: 0, g: 0, b: 0, a: 1}
       key1: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -4923,7 +4959,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 18, y: 30, z: 22}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: -5.5, y: 10, z: 2}
 --- !u!1 &1416375598
 GameObject:
@@ -6305,7 +6345,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 25, y: 20, z: 20}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 10, z: 0}
 --- !u!4 &1500457064 stripped
 Transform:
@@ -6849,7 +6893,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 36, y: 1, z: 40}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 0.68, z: 0}
 --- !u!4 &1691304061 stripped
 Transform:
@@ -6899,7 +6947,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 2, y: 4, z: 25}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1744274250
 GameObject:
@@ -6944,7 +6996,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 20, y: 4, z: 2}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1753594685
 GameObject:
@@ -8680,7 +8736,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 2, y: 2, z: 2}
+=======
+  m_Size: {x: 18, y: 30, z: 22}
+>>>>>>> parent of 2da2398 (pyssy toimii :D)
   m_Center: {x: -5.5, y: 10, z: 2}
 --- !u!4 &2091470915 stripped
 Transform:

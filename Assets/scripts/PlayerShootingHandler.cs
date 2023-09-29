@@ -23,7 +23,7 @@ public class PlayerShootingHandler : MonoBehaviour
     void Start()
     {
         gunDamage = 1;
-        fireRate = 15f;
+        fireRate = 0.25f;
         weaponRange = 20;
         hitForce = 100f;
         shotDuration = new WaitForSeconds(0.07f);
@@ -34,15 +34,11 @@ public class PlayerShootingHandler : MonoBehaviour
         damage = 1;
         
     }
-
-    private float nextTimeToFire = 0f;
-
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextFire)
+        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
-            nextFire = Time.time + 1f / fireRate;
-
+            nextFire = Time.time + fireRate;
             Vector3 endPos = gunEnd.transform.position + player.transform.forward * weaponRange;
             RaycastHit hit;
             targetLayerMask = ~(1 << LayerMask.NameToLayer("PowerUp"));
