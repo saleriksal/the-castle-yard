@@ -23,7 +23,7 @@ public class PlayerShootingHandler : MonoBehaviour
     void Start()
     {
         gunDamage = 1;
-        fireRate = 0.25f;
+        fireRate = 15f;
         weaponRange = 20;
         hitForce = 100f;
         shotDuration = new WaitForSeconds(0.07f);
@@ -32,13 +32,17 @@ public class PlayerShootingHandler : MonoBehaviour
         gunAudio = GetComponent<AudioSource>();
         player = this.gameObject;
         damage = 1;
-        
+
     }
+
+    private float nextTimeToFire = 0f;
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        if (Input.GetButton("Fire1") && Time.time >= nextFire)
         {
-            nextFire = Time.time + fireRate;
+            nextFire = Time.time + 1f / fireRate;
+
             Vector3 endPos = gunEnd.transform.position + player.transform.forward * weaponRange;
             RaycastHit hit;
             targetLayerMask = ~(1 << LayerMask.NameToLayer("PowerUp"));
@@ -67,7 +71,7 @@ public class PlayerShootingHandler : MonoBehaviour
                     hit.transform.gameObject.GetComponent<ObjectPhysicController>().TakeDamage(1);
                 }
 
-                
+
             }
             else
             {
@@ -86,7 +90,7 @@ public class PlayerShootingHandler : MonoBehaviour
         gunAudio.Play();
 
         bulletTrail.enabled = true;
-        
+
         yield return shotDuration;
 
         bulletTrail.enabled = false;
