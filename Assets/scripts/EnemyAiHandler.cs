@@ -21,6 +21,7 @@ public class EnemyAiHandler : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        transform.LookAt(player);
     }
     private void OnCollisionEnter(Collision collision)
     {
